@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: shoppingwebbffservice
-          image: shoppingwebbffservice
+          image: mycluster.icp:8500/<your-username>/shoppingwebbffservice
           ports:
           - containerPort: 9443
           - containerPort: 9080
