@@ -1,12 +1,8 @@
-FROM websphere-liberty:kernel
+FROM websphere-liberty
 
 COPY target/ShoppingWebBFFService-0.1.war /opt/ibm/wlp/usr/servers/defaultServer/dropins/
 COPY server.xml /opt/ibm/wlp/usr/servers/defaultServer/
-COPY GeneratedSSLInclude.xml /opt/ibm/wlp/usr/servers/defaultServer/
-COPY ltpa.keys /opt/ibm/wlp/usr/servers/defaultServer/
-COPY key.jks /opt/ibm/wlp/usr/servers/defaultServer/resources/security/
 
 RUN installUtility install --acceptLicense defaultServer
 
 EXPOSE 9080
-EXPOSE 9443
