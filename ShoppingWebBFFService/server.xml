@@ -28,21 +28,28 @@
 	
   <!-- User and group security definitions -->
     <basicRegistry id="basic" realm="customRealm">
-        <user name="rbarcia" password="bl0wfish"/>
-        <group name="SecureShopper">
-      <member name="rbarcia"/>
+     <user name="rbarcia" password="bl0wfish"/>
+     <group name="SecureShopper">
+        <member name="rbarcia"/>
      </group>
+     <security-role name="SecureShopper">
+	<user name="rbarcia" />
+	<group name="SecureShopper" />
+     </security-role>
     </basicRegistry>
 
     <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
     <httpEndpoint id="defaultHttpEndpoint"
                   host="*"
-		          httpPort="9080"
+		  httpPort="9080"
                   httpsPort="9443" />
 
 <application id="ShoppingWebBFFService" name="ShoppingWebBFFService" type="war" location="/config/apps/ShoppingWebBFFService.war">
-    <classloader apiTypeVisibility="spec, ibm-api, third-party" />
+    <application-bnd>
+	<security-role name="SecureShopper">
+	  <user name="rbarcia" />
+	</security-role>
+    </application-bnd>
 </application>
-
     
 </server>
