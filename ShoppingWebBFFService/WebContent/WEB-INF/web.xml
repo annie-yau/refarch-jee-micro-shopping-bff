@@ -8,7 +8,7 @@
 	</welcome-file-list>
 
 	<security-role>
-		<role-name>cn=SecureShopper,dc=purplecompute,dc=com</role-name>
+		<role-name>SecureShopper</role-name>
 	</security-role>
 	<security-constraint>
 		<display-name>CustomerServices</display-name>
@@ -16,11 +16,10 @@
 			<web-resource-name>Customer</web-resource-name>
 			<url-pattern>/rest/*</url-pattern>
 		</web-resource-collection>
-		<auth-constraint><role-name>cn=SecureShopper,dc=purplecompute,dc=com</role-name></auth-constraint>
+		<auth-constraint><role-name>SecureShopper</role-name></auth-constraint>
 	</security-constraint>
 	<login-config>
 		<auth-method>BASIC</auth-method>
-		<realm-name>168.1.140.158:32075</realm-name>
 	</login-config>
 
 </web-app>
